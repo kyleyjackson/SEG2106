@@ -1,0 +1,167 @@
+class TrafficLight {
+  status {
+
+    // init state
+
+    initializer {
+      lowTraffic() -> northSouthArrowLow;
+      moderateTraffic() -> northGreenArrowMid;
+      highTraffic() -> northGreenArrowHigh;
+    }
+    
+    
+    // beginning of low
+    
+    northSouthArrowLow {
+      entry / { trafficLightManager.northArrow(); }
+      entry / { trafficLightManager.southArrow(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerGreen() -> northSouthGreenLow;
+    }
+    
+    northSouthGreenLow {
+      entry / { trafficLightManager.northGreen(); }
+      entry / { trafficLightManager.southGreen(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerGreen() -> northSouthYellowLow;
+    }
+    
+    northSouthYellowLow {
+      entry / { trafficLightManager.northYellow(); }
+      entry / { trafficLightManager.southYellow(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerYellow() -> northSouthRedLow;
+    }
+    
+    northSouthRedLow {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westGreen(); }
+      entry / { trafficLightManager.eastGreen(); }
+      timerGreen() -> westEastYellowLow;
+    }
+    
+    westEastYellowLow {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westYellow(); }
+      entry / { trafficLightManager.eastYellow(); }
+      timerYellow() -> northSouthArrowLow;
+    }
+    
+    // end of low
+    
+    // beginning of moderate
+    
+    northGreenArrowMid {
+      entry / { trafficLightManager.northGreenAndArrow(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerGreen() -> northYellowMid;
+    }
+    
+    northYellowMid {
+      entry / { trafficLightManager.northYellow(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerYellow() -> southGreenArrowMid;
+    }
+    
+    southGreenArrowMid {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southGreenAndArrow(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerGreen() -> southYellowMid;
+    }
+    
+    southYellowMid {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southYellow(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerYellow() -> westEastGreenMid;
+    }
+    
+    westEastGreenMid {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westGreen(); }
+      entry / { trafficLightManager.eastGreen(); }
+      timerGreen() -> westEastYellowMid;
+    }
+    
+    westEastYellowMid {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westYellow(); }
+      entry / { trafficLightManager.eastYellow(); }
+      timerYellow() -> northGreenArrowMid;
+    }
+
+    // end of moderate
+
+    // beginning of high
+
+    northGreenArrowHigh {
+      entry / { trafficLightManager.northGreenAndArrow(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerGreen() -> northYellowHigh;
+    }
+
+    northYellowHigh {
+      entry / { trafficLightManager.northYellow(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerYellow() -> southGreenArrowHigh;
+    }
+
+    southGreenArrowHigh {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southGreenAndArrow(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerGreen() -> southYellowHigh;
+    }
+
+    southYellowHigh {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southYellow(); }
+      entry / { trafficLightManager.westRed(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerYellow() -> westGreenArrowHigh;
+    }
+
+    westGreenArrowHigh {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westGreenAndArrow(); }
+      entry / { trafficLightManager.eastRed(); }
+      timerGreen() -> westEastGreenHigh;
+    }
+
+    westEastGreenHigh {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westGreen(); }
+      entry / { trafficLightManager.eastGreen(); }
+      timerGreen() -> westEastYellowHigh;
+    }
+
+    westEastYellowHigh {
+      entry / { trafficLightManager.northRed(); }
+      entry / { trafficLightManager.southRed(); }
+      entry / { trafficLightManager.westYellow(); }
+      entry / { trafficLightManager.eastYellow(); }
+      timerYellow() -> northGreenArrowHigh;
+    }
+  }
+}
