@@ -1,0 +1,20 @@
+
+<program> ::= { <statement_list> } 
+
+<statement_list> ::= <statement> ; <statement_list_tail> 
+
+<statement_list_tail> ::= <statement_list> | epsilon
+
+<statement> ::= call : <procedure_call> | compute : <expression> 
+
+<procedure_call> ::= id ( <parameters> ) 
+
+<parameters> ::= <factor> <parameters_tail> 
+
+<parameters_tail> ::= , <parameters> | epsilon
+
+<expression> ::= id = <factor> <expression_tail> 
+
+<expression_tail> ::= + <factor> | - <factor> | epsilon
+
+<factor> ::= id | num 

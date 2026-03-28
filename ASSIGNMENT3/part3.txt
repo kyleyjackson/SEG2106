@@ -1,0 +1,26 @@
+FIRST SETS
+
+FIRST(program) = { { }
+FIRST(statement_list) = { call, compute }
+FIRST(statement_list_tail) = { call, compute, epsilon }
+FIRST(statement) = { call, compute }
+FIRST(procedure_call) = { id }
+FIRST(parameters) = { id, num }
+FIRST(parameters_tail) = { , , epsilon }
+FIRST(expression) = { id }
+FIRST(expression_tail) = { +, -, epsilon }
+FIRST(factor) = { id, num }
+
+
+FOLLOW SETS
+
+FIRST(program) = { $ }
+FIRST(statement_list) = { } }
+FIRST(statement_list_tail) = { } }
+FIRST(statement) = { ; }
+FIRST(procedure_call) = { ; }
+FIRST(parameters) = { ) }
+FIRST(parameters_tail) = { ) }
+FIRST(expression) = { ; }
+FIRST(expression_tail) = { ; }
+FIRST(factor) = { ,, ), +, -, ; }
