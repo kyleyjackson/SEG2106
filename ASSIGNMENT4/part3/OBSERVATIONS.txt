@@ -1,0 +1,4 @@
+DEADLOCK IS AVOIDED IN THIS CASE
+
+Since a philosopher will drop a chopstick after a certain period of time holding only 1 chopstick,
+no philosopher will indefinitely hold on to a chopstick, a static deadlock cannot occur.

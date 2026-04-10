@@ -1,0 +1,6 @@
+DEADLOCK IS AVOIDED IN THIS CASE
+
+By forcing odd numbered philosophers to first pick up the chopstick to their left,
+and making the even ones first pick up the one on their right, it is guaranteed that at least
+1 pair of philosophers will fight over a chopstick as their first move. This ensures that the situation
+of each philosopher holding 1 chopstick each will not occur.

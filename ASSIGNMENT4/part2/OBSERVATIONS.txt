@@ -1,0 +1,6 @@
+DEADLOCK IS AVOIDED IN THIS CASE
+
+since we only have 4 philosophers in the "eating room" at once, we will always have
+4 philosophers fighting over 5 chopsticks, meaning that 1 philosopher will always acquire
+2 chopsticks no matter what. This philosopher will then eat, finish, and release the chopsticks
+which allows for others to progress.
